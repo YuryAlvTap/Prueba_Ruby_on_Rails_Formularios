@@ -1,0 +1,47 @@
+<div class="well">
+  <div class = "container" >
+    <div class="row">
+      <div class="col-md-6">
+           <p> No Completados </p>
+           <table class="table" style="color: black">
+              <thead>
+                <th> Descripción </th>
+                <th> Completado  </th>
+                <th colspan="2"> </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @todos.each do |todo| %>
+                  <% if todo.completed == false %>
+                     <td><%= todo.description %></td>
+                     <td><%= todo.completed %></td>
+                  <% end %>
+                </tr>
+                <% end %>
+              </tbody>
+           </table>
+       </div>
+       <div class="col-md-6">
+           <p> Completados </p>
+           <table class="table" style="color: black">
+              <thead>
+                <th> Descripción </th>
+                <th> Completado  </th>
+                <th colspan="2"> </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @todos.each do |todo| %>
+                  <% if todo.completed == true %>
+                     <td><%= todo.description %></td>
+                     <td><%= todo.completed %></td>
+                  <% end %>
+                </tr>
+                <% end %>
+              </tbody>
+           </table>
+        </div>
+    </div>
+  </div>
+    <%= link_to 'Volver', todos_path, class:'btn btn-default' %>
+</div>

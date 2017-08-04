@@ -1,0 +1,24 @@
+<div class="well">
+<table class="table" style="color: black">
+   <thead>
+     <tr>
+     <th> Descripción </th>
+     <th> Completado </th>
+     <th colspan="2"></th>
+     </tr>
+   </thead>
+   <tbody>
+     <% @todos.each do |todo| %>
+         <td><%= todo.description %></td>
+         <td><%= todo.completed %></td>
+         <td><%= link_to 'Crear', todos_new_path, class:'btn btn-success' %></td>
+         <td><%= link_to 'Ver', todo, class:'btn btn-primary' %></td>
+         <td><%= link_to 'Editar', todo_edit_path(todo), class:'btn btn-warning' %></td>
+         <td><%= link_to 'Marcar', todo_complete_path(todo), class:'btn btn-default' %></td>
+         <td><%= link_to 'Borrar', todo, method: :delete, data: { confirm: 'Estás seguro de borrar la descripción?' }, class:'btn btn-danger' %></td>
+       </tr>
+     <% end %>
+   </tbody>
+</table>
+   <%= link_to 'Crear', todos_new_path, class:'btn btn-success' %>
+</div>
